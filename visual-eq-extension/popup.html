@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Audio EQ</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎵 Visual Audio EQ</h1>
+      <div class="status-indicator">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Inactive</span>
+      </div>
+    </header>
+
+    <!-- Audio Visualizer -->
+    <div class="visualizer-section">
+      <canvas id="visualizer" width="320" height="100"></canvas>
+    </div>
+
+    <!-- EQ Controls -->
+    <div class="eq-section">
+      <h2>Equalizer</h2>
+      <div class="eq-controls">
+        <div class="eq-band">
+          <input type="range" id="band-60" class="eq-slider" min="-12" max="12" value="0">
+          <label>60Hz</label>
+          <span class="eq-value" id="value-60">0dB</span>
+        </div>
+        <div class="eq-band">
+          <input type="range" id="band-230" class="eq-slider" min="-12" max="12" value="0">
+          <label>230Hz</label>
+          <span class="eq-value" id="value-230">0dB</span>
+        </div>
+        <div class="eq-band">
+          <input type="range" id="band-910" class="eq-slider" min="-12" max="12" value="0">
+          <label>910Hz</label>
+          <span class="eq-value" id="value-910">0dB</span>
+        </div>
+        <div class="eq-band">
+          <input type="range" id="band-3600" class="eq-slider" min="-12" max="12" value="0">
+          <label>3.6kHz</label>
+          <span class="eq-value" id="value-3600">0dB</span>
+        </div>
+        <div class="eq-band">
+          <input type="range" id="band-14000" class="eq-slider" min="-12" max="12" value="0">
+          <label>14kHz</label>
+          <span class="eq-value" id="value-14000">0dB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presets -->
+    <div class="presets-section">
+      <h2>Presets</h2>
+      <div class="presets-grid">
+        <button class="preset-btn active" data-preset="flat">Flat</button>
+        <button class="preset-btn" data-preset="bass-boost">Bass Boost</button>
+        <button class="preset-btn" data-preset="treble-boost">Treble Boost</button>
+        <button class="preset-btn" data-preset="vocal">Vocal</button>
+        <button class="preset-btn" data-preset="rock">Rock</button>
+        <button class="preset-btn" data-preset="electronic">Electronic</button>
+      </div>
+    </div>
+
+    <!-- Master Volume -->
+    <div class="volume-section">
+      <h2>Master Volume</h2>
+      <div class="volume-control">
+        <span class="volume-icon">🔈</span>
+        <input type="range" id="master-volume" min="0" max="150" value="100">
+        <span id="volume-value">100%</span>
+        <span class="volume-icon">🔊</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-section">
+      <button id="enable-btn" class="control-btn primary">Enable EQ</button>
+      <button id="reset-btn" class="control-btn secondary">Reset</button>
+    </div>
+
+    <footer>
+      <p>Click "Enable EQ" on a page with audio to start</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
