@@ -63,16 +63,7 @@
     
     // Find HTML5 audio and video elements
     document.querySelectorAll('audio, video').forEach(el => {
-      if (!el.paused || el.readyState > 0) {
-        elements.push(el);
-      }
-    });
-    
-    // Also include elements that might have audio
-    document.querySelectorAll('audio, video').forEach(el => {
-      if (!elements.includes(el)) {
-        elements.push(el);
-      }
+      elements.push(el);
     });
     
     return elements;

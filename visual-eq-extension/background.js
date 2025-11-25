@@ -56,15 +56,4 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   }
 });
 
-// Handle keyboard shortcuts (if defined in manifest)
-chrome.commands?.onCommand?.addListener((command) => {
-  if (command === 'toggle-eq') {
-    chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
-      if (tab) {
-        chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_EQ' });
-      }
-    });
-  }
-});
-
 console.log('Visual Audio EQ: Background service worker started');
